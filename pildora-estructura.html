@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Píldoras DICA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./pildora-style.css?v=1.1" />
+    <style>
+      @media print {
+        @page {
+          size: A4;
+          margin: 20mm;
+        }
+        html,
+        body {
+          background: #fff !important;
+          margin: 0;
+          padding: 0;
+        }
+        .img_steps,
+        .editor-content .img_steps {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          outline: none !important;
+        }
+        .img_steps img,
+        .editor-content img {
+          outline: none !important;
+          box-shadow: none !important;
+        }
+        .editor-content .image-caption {
+          outline: none !important;
+        }
+        .editor-content .image-caption:empty::before {
+          content: '' !important;
+        }
+        .info-card,
+        .didactic-card,
+        .val-tools,
+        .checklist,
+        .goal-box,
+        .highlight,
+        .state-box {
+          outline: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="editor-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Maquetador DICA</p>
+            <h1>Generador de Píldoras</h1>
+          </div>
+          <button class="export-btn no-print" id="exportPdf" type="button">Guardar PDF</button>
+        </div>
+
+        <div class="project-actions no-print">
+          <button type="button" class="btn-project" id="newProject" title="Crear nuevo proyecto desde cero">Nuevo</button>
+          <button type="button" class="btn-project" id="saveProject" title="Descargar proyecto actual para editarlo después">Guardar</button>
+          <input id="projectFileLoader" type="file" accept=".json" style="display: none;" />
+        </div>
+
+        <div class="toolbar" aria-label="Herramientas de formato">
+          <button type="button" data-command="bold" title="Negrita"><strong>N</strong></button>
+          <button type="button" data-command="italic" title="Cursiva"><em>C</em></button>
+          <button type="button" data-command="underline" title="Subrayado"><span style="text-decoration: underline;">S</span></button>
+          <button type="button" data-command="formatBlock" data-value="h2" title="Título de sección">H2</button>
+          <button type="button" data-command="formatBlock" data-value="h3" title="Subtítulo">H3</button>
+          <button type="button" data-command="insertUnorderedList" title="Lista">• Lista</button>
+          <button type="button" data-command="insertOrderedList" title="Lista numerada">1. Lista</button>
+        </div>
+
+        <div class="tool-group">
+          <label for="documentSubtitle">Subtítulo</label>
+          <input id="documentSubtitle" type="text" value="Comercio y desarrollo institucional" />
+        </div>
+
+      
+
+
+
+        <div class="tool-group">
+          <label for="imageAlign">Alineación</label>
+          <select id="imageAlign" required>
+            <option value="">Selecciona una alineación</option>
+            <option value="center">Centrada</option>
+            <option value="left">Izquierda</option>
+            <option value="right">Derecha</option>
+          </select>
+          <div id="imageAlignError" class="field-error" aria-live="polite"></div>
+        </div>
+
+        <div class="tool-group">
+          <label for="imageLoader">Añadir imagen</label>
+          <input id="imageLoader" type="file" accept="image/*" />
+          <button type="button" class="secondary-btn" id="addImage">Insertar imagen</button>
+        </div>
+
+        <div class="tool-group">
+          <label for="imgSize">Tamaño de imagen</label>
+          <input id="imgSize" type="range" min="30" max="100" value="65" />
+        </div>
+
+        <div class="tool-group">
+          <label>Elementos</label>
+          <button type="button" class="secondary-btn" id="addRecommendation" style="width: 100%;">Añadir Recomendación</button>
+        </div>
+      </aside>
+
+      <main class="document-panel">
+        <article class="pill-document" aria-label="Vista previa de la píldora">
+          <header class="doc-header">
+            <div class="brand-copy">
+              <strong>DICA Asturias</strong>
+              <span id="subtitlePreview">Comercio y desarrollo institucional</span>
+            </div>
+            <img src="./assets/dica-logo-corporativo.svg" alt="DICA Logo" class="brand-logo" />
+          </header>
+
+          <div class="document-body">
+            <h1 id="docTitle" contenteditable="true">Título de la píldora formativa</h1>
+
+            <div class="intro-box">
+              <p>Escribe aquí una introducción clara para explicar el objetivo, la utilidad y el público de la tarea o proceso.</p>
+            </div>
+
+            <div id="editor" class="editor-content" contenteditable="true" spellcheck="true">
+              <h2>Paso a paso</h2>
+              <ol>
+                <li>Identifica la situación actual y los puntos problemáticos.</li>
+                <li>Define la estructura del proceso y los responsables.</li>
+                <li>Documenta la solución con criterios claros.</li>
+              </ol>
+
+              <h2>Recomendaciones</h2>
+              <div class="info-card">
+                <strong>Recomendación</strong>
+                <p>Prioriza la claridad y la trazabilidad para evitar errores y mejorar la ejecución.</p>
+              </div>
+
+              <h2>Checklist</h2>
+              <ul>
+                <li>Revisar incidencias pendientes.</li>
+                <li>Actualizar documentación.</li>
+                <li>Confirmar prioridad de tareas.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-actions no-print">
+            <button class="btn-print" id="printBtn" type="button">Imprimir / Guardar PDF</button>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <script src="./pildora-estructura.js?v=1.1"></script>
+  </body>
+</html>

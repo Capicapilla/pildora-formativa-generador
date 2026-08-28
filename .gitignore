@@ -1,0 +1,22 @@
+# Código fuente original del desarrollador (limpio con comentarios)
+pildora-estructura-src.js
+
+# Archivos de configuración de editores y sistema operativo
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Datos de proyecto exportados (JSON descargas)
+*.json
+!pildora-estructura.html   # Asegurar que no afecte a otros archivos si hubiera algo más, aunque la regla anterior ya es genérica.
+# (Nota: settings.json y cualquier exportación de proyecto pildora-*.json quedan ignorados)
+
+# Archivos empaquetados y comprimidos
+*.zip
+*.rar
+*.tar.gz
+
+# Archivos temporales o logs
+*.log
+.tmp/
+.temp/
