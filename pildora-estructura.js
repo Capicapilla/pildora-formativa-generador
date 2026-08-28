@@ -1,5 +1,5 @@
 (function(){
-const _0x1a=document, _0x2b=_0x1a.getElementById('editor'), _0x3c=_0x1a.getElementById('docTitle'), _0x4d=_0x1a.getElementById('documentSubtitle'), _0x5e=_0x1a.getElementById('subtitlePreview'), _0x6f=_0x1a.getElementById('imageLoader'), _0x6fp=_0x1a.getElementById('projectFileLoader'), _0x7a=_0x1a.getElementById('imageAlign'), _0x8b=_0x1a.getElementById('imageAlignError'), _0x9c=_0x1a.getElementById('addImage'), _0x10d=_0x1a.getElementById('imgSize'), _0x11e=_0x1a.getElementById('printBtn'), _0x12f=_0x1a.getElementById('exportPdf');
+const _0x1a=document, _0x2b=_0x1a.getElementById('editor'), _0x3c=_0x1a.getElementById('docTitle'), _0x3d=_0x1a.getElementById('introBox'), _0x4d=_0x1a.getElementById('documentSubtitle'), _0x5e=_0x1a.getElementById('subtitlePreview'), _0x6f=_0x1a.getElementById('imageLoader'), _0x6fp=_0x1a.getElementById('projectFileLoader'), _0x7a=_0x1a.getElementById('imageAlign'), _0x8b=_0x1a.getElementById('imageAlignError'), _0x9c=_0x1a.getElementById('addImage'), _0x10d=_0x1a.getElementById('imgSize'), _0x11e=_0x1a.getElementById('printBtn'), _0x12f=_0x1a.getElementById('exportPdf');
 function _0x3f(){
 const h=Boolean(_0x7a.value&&_0x7a.value!=='');
 _0x7a.classList.toggle('invalid',!h);
@@ -231,6 +231,11 @@ e.preventDefault();
 const t=e.clipboardData.getData('text/plain').replace(/[\r\n]+/g,' ');
 _0x1a.execCommand('insertText',false,t);
 });
+_0x3d.addEventListener('paste',e=>{
+e.preventDefault();
+const t=e.clipboardData.getData('text/plain');
+_0x1a.execCommand('insertText',false,t);
+});
 _0x2b.addEventListener('paste',e=>{
 e.preventDefault();
 const t=e.clipboardData.getData('text/plain');
@@ -253,12 +258,13 @@ if(confirm('¿Estás seguro de que quieres empezar una nueva píldora? Se perder
 _0x3c.innerHTML='Título de la píldora formativa';
 _0x4d.value='Comercio y desarrollo institucional';
 _0x5e.textContent='Comercio y desarrollo institucional';
+_0x3d.innerHTML='<p>Escribe aquí una introducción clara para explicar el objetivo, la utilidad y el público de la tarea o proceso.</p>';
 _0x2b.innerHTML='<h2>Paso a paso</h2><ol><li>Identifica la situación actual y los puntos problemáticos.</li><li>Define la estructura del proceso y los responsables.</li><li>Documenta la solución con criterios claros.</li></ol><h2>Recomendaciones</h2><div class="info-card"><strong>Recomendación</strong><p>Prioriza la claridad y la trazabilidad para evitar errores y mejorar la ejecución.</p></div><h2>Checklist</h2><ul><li>Revisar incidencias pendientes.</li><li>Actualizar documentación.</li><li>Confirmar prioridad de tareas.</li></ul>';
 _0x3c.focus();
 }
 });
 _0x15i.addEventListener('click',()=>{
-const pd={title:_0x3c.innerHTML,subtitle:_0x4d.value,content:_0x2b.innerHTML};
+const pd={title:_0x3c.innerHTML,subtitle:_0x4d.value,intro:_0x3d.innerHTML,content:_0x2b.innerHTML};
 const js=JSON.stringify(pd,null,2), bl=new Blob([js],{type:'application/json'}), u=URL.createObjectURL(bl), a=_0x1a.createElement('a');
 const ct=_0x3c.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,30)||'proyecto';
 a.href=u;
@@ -295,6 +301,11 @@ if(d.title!==undefined&&d.subtitle!==undefined&&d.content!==undefined){
 _0x3c.innerHTML=d.title;
 _0x4d.value=d.subtitle;
 _0x5e.textContent=d.subtitle;
+if(d.intro!==undefined){
+_0x3d.innerHTML=d.intro;
+}else{
+_0x3d.innerHTML='<p>Escribe aquí una introducción clara para explicar el objetivo, la utilidad y el público de la tarea o proceso.</p>';
+}
 _0x2b.innerHTML=d.content;
 _0x2b.querySelectorAll('.img_steps').forEach(b=>{
 b.classList.remove('selected');
