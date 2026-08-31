@@ -361,6 +361,18 @@ input {
   color: var(--dica-yellow);
 }
 
+.editor-content a {
+  color: var(--dica-blue);
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.editor-content a:hover {
+  color: var(--dica-yellow);
+}
+
 .info-card,
 .goal-box,
 .highlight,

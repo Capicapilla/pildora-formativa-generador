@@ -27,6 +27,25 @@ b.addEventListener('click',()=>{
 _0x4f(b.dataset.command,b.dataset.value||null);
 });
 });
+const _0x13k=_0x1a.getElementById('insertLinkBtn');
+_0x13k.addEventListener('click',()=>{
+_0x2b.focus();
+const url=prompt('Introduce la dirección web (URL):','https://');
+if(!url||url==='https://')return;
+const s=window.getSelection();
+if(s.isCollapsed){
+const h=`<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+_0x1a.execCommand('insertHTML',false,h);
+}else{
+_0x1a.execCommand('createLink',false,url);
+if(s.rangeCount>0){
+const c=s.getRangeAt(0).commonAncestorContainer;
+const p=c.nodeType===3?c.parentNode:c;
+const l=p.closest('a');
+if(l){l.target='_blank';l.rel='noopener noreferrer';}
+}
+}
+});
 _0x4d.addEventListener('input',e=>{
 _0x5e.textContent=e.target.value||'Digitalización y Gestión del Dato para tu Comercio';
 });
