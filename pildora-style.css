@@ -308,31 +308,51 @@ input {
   line-height: 1.6;
 }
 
+.editor-content {
+  counter-reset: h2-counter;
+}
+
 .editor-content h2,
 .editor-content h3 {
   margin: 0;
   line-height: 1.25;
+  color: var(--dica-blue) !important;
+}
+
+/* Forzar a cualquier elemento interno (como spans o font tags) a heredar el color azul */
+.editor-content h2 *,
+.editor-content h3 * {
+  color: inherit !important;
 }
 
 .editor-content h2 {
   font-size: 17px;
   margin: 0 0 12px;
-  color: var(--dica-blue);
   font-weight: 700;
+  counter-reset: h3-counter;
+}
+
+.editor-content h2::before {
+  counter-increment: h2-counter;
+  content: counter(h2-counter) ". ";
 }
 
 .editor-content h3 {
   font-size: 14px;
   margin: 20px 0 12px;
-  color: var(--dica-blue);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
+.editor-content h3::before {
+  counter-increment: h3-counter;
+  content: counter(h2-counter) "." counter(h3-counter) ". ";
+}
+
 .editor-content p,
 .editor-content li {
-  font-size: 13.5px;
+  font-size: 13px;
   color: var(--texto);
 }
 
@@ -393,7 +413,7 @@ input {
   padding: 15px;
   border-left: 5px solid var(--dica-blue);
   border-radius: 4px;
-  font-size: 13.5px;
+  font-size: 13px;
   margin: 15px 0;
 }
 
