@@ -136,7 +136,7 @@ _0x3f();
 _0x2b.addEventListener('click',e=>{
 const dc=e.target.closest('[data-action="delete-card"]');
 if(dc){
-const c=dc.closest('.info-card, .didactic-card, .val-tools, .checklist, .goal-box, .highlight, .state-box');
+const c=dc.closest('.info-card, .didactic-card, .val-tools, .checklist, .goal-box, .highlight, .state-box, .page-break-divider');
 if(c){c.remove();}
 return;
 }
@@ -156,10 +156,10 @@ const sb=_0x2b.querySelector('.img_steps.selected');
 if(sb){sb.remove();}
 return;
 }
-const sb=e.target.closest('.img_steps'), ci=e.target.closest('img'), sc=e.target.closest('.info-card, .didactic-card, .val-tools, .checklist, .goal-box, .highlight, .state-box');
+const sb=e.target.closest('.img_steps'), ci=e.target.closest('img'), sc=e.target.closest('.info-card, .didactic-card, .val-tools, .checklist, .goal-box, .highlight, .state-box, .page-break-divider');
 _0x2b.querySelectorAll('.img_steps').forEach(i=>i.classList.remove('selected'));
 _0x2b.querySelectorAll('img').forEach(i=>i.classList.remove('selected'));
-_0x2b.querySelectorAll('.info-card, .didactic-card, .val-tools, .checklist, .goal-box, .highlight, .state-box').forEach(c=>{
+_0x2b.querySelectorAll('.info-card, .didactic-card, .val-tools, .checklist, .goal-box, .highlight, .state-box, .page-break-divider').forEach(c=>{
 if(c!==sc){
 c.classList.remove('selected');
 const ctrl=c.querySelector('.card-inline-controls');
@@ -247,6 +247,18 @@ const c=_0x1a.createElement('div');
 c.className='info-card';
 c.innerHTML='<strong>Recomendación</strong><p>Escribe aquí tu recomendación...</p>';
 _0x5f(c);
+const p=_0x1a.createElement('p');
+p.innerHTML='<br>';
+_0x5f(p);
+_0x2b.focus();
+});
+const _0x13h=_0x1a.getElementById('addPageBreak');
+_0x13h.addEventListener('click',()=>{
+const d=_0x1a.createElement('div');
+d.className='page-break-divider no-print';
+d.contentEditable='false';
+d.innerHTML='<span>Salto de página (No se imprime)</span>';
+_0x5f(d);
 const p=_0x1a.createElement('p');
 p.innerHTML='<br>';
 _0x5f(p);

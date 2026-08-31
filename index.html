@@ -44,8 +44,21 @@
         .checklist,
         .goal-box,
         .highlight,
-        .state-box {
+        .state-box,
+        .page-break-divider {
           outline: none !important;
+        }
+        .page-break-divider {
+          display: block !important;
+          height: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: none !important;
+          break-before: page !important;
+          page-break-before: always !important;
+        }
+        .page-break-divider span {
+          display: none !important;
         }
       }
     </style>
@@ -110,7 +123,8 @@
 
         <div class="tool-group">
           <label>Elementos</label>
-          <button type="button" class="secondary-btn" id="addRecommendation" style="width: 100%;">Añadir Recomendación</button>
+          <button type="button" class="secondary-btn" id="addRecommendation" style="width: 100%; margin-bottom: 8px;">Añadir Recomendación</button>
+          <button type="button" class="secondary-btn" id="addPageBreak" style="width: 100%;">Salto de Página</button>
         </div>
       </aside>
 
