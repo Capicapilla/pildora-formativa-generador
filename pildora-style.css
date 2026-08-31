@@ -319,10 +319,13 @@ input {
   color: var(--dica-blue) !important;
 }
 
-/* Forzar a cualquier elemento interno (como spans o font tags) a heredar el color azul */
+/* Forzar a cualquier elemento interno (como spans o font tags) a heredar el color, tamaño, grosor y mayúsculas */
 .editor-content h2 *,
 .editor-content h3 * {
   color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  text-transform: inherit !important;
 }
 
 .editor-content h2 {
