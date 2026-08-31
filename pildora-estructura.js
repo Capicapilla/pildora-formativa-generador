@@ -28,7 +28,7 @@ _0x4f(b.dataset.command,b.dataset.value||null);
 });
 });
 _0x4d.addEventListener('input',e=>{
-_0x5e.textContent=e.target.value||'Comercio y desarrollo institucional';
+_0x5e.textContent=e.target.value||'Digitalización y Gestión del Dato para tu Comercio';
 });
 _0x11e.addEventListener('click',()=>window.print());
 _0x12f.addEventListener('click',()=>window.print());
@@ -256,8 +256,8 @@ const _0x14h=_0x1a.getElementById('newProject'), _0x15i=_0x1a.getElementById('sa
 _0x14h.addEventListener('click',()=>{
 if(confirm('¿Estás seguro de que quieres empezar una nueva píldora? Se perderán los cambios no guardados.')){
 _0x3c.innerHTML='Título de la píldora formativa';
-_0x4d.value='Comercio y desarrollo institucional';
-_0x5e.textContent='Comercio y desarrollo institucional';
+_0x4d.value='Digitalización y Gestión del Dato para tu Comercio';
+_0x5e.textContent='Digitalización y Gestión del Dato para tu Comercio';
 _0x3d.innerHTML='<p>Escribe aquí una introducción clara para explicar el objetivo, la utilidad y el público de la tarea o proceso.</p>';
 _0x2b.innerHTML='<h2>Paso a paso</h2><ol><li>Identifica la situación actual y los puntos problemáticos.</li><li>Define la estructura del proceso y los responsables.</li><li>Documenta la solución con criterios claros.</li></ol><h2>Recomendaciones</h2><div class="info-card"><strong>Recomendación</strong><p>Prioriza la claridad y la trazabilidad para evitar errores y mejorar la ejecución.</p></div><h2>Checklist</h2><ul><li>Revisar incidencias pendientes.</li><li>Actualizar documentación.</li><li>Confirmar prioridad de tareas.</li></ul>';
 _0x3c.focus();
