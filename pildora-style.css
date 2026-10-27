@@ -302,7 +302,7 @@ input {
 }
 
 .editor-content {
-  min-height: 0;
+  min-height: 1.6em;
   padding: 0;
   outline: none;
   line-height: 1.6;

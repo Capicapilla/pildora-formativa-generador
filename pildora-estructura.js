@@ -17,6 +17,18 @@ return true;
 function _0x4f(c,v=null){
 _0x2b.focus();
 if(c==='formatBlock'){
+const h=_0x2b.textContent.trim()||_0x2b.querySelector('img, .info-card, .didactic-card, .val-tools, .checklist, .goal-box, .highlight, .state-box, .page-break-divider');
+if(!h){
+const n=_0x1a.createElement(v||'p');
+n.appendChild(_0x1a.createElement('br'));
+_0x2b.replaceChildren(n);
+const r=_0x1a.createRange();
+r.selectNodeContents(n);
+r.collapse(true);
+const s=window.getSelection();
+if(s){s.removeAllRanges();s.addRange(r);}
+return;
+}
 _0x1a.execCommand('formatBlock',false,v||'p');
 return;
 }
